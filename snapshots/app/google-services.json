@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "171905946960",
+    "project_id": "snapshotsdave-45559",
+    "storage_bucket": "snapshotsdave-45559.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171905946960:android:1d2b6172c06a8494664855",
+        "android_client_info": {
+          "package_name": "com.dave.snapshots"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171905946960-jkrb9lhg7b79r4m2fjftfm07j5riq15e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8wmwkJxPFVpqLRP5SXwrsOIyptVrUJCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171905946960-jkrb9lhg7b79r4m2fjftfm07j5riq15e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
