@@ -57,7 +57,7 @@ class AddFragment : Fragment() {
 
     private fun postSnapshot(){
         nBinding.progressBar.visibility = View.VISIBLE
-        //nStorageReference.child(PATH_SNAPSHOT).child("my_photo")
+        val key = nDataBaseReference.push().key!!
         val storageReference = nStorageReference.child(PATH_SNAPSHOT).child("my_photo")
         if (nPhotoSelectedUri != null){
         storageReference.putFile(nPhotoSelectedUri!!)
@@ -72,6 +72,11 @@ class AddFragment : Fragment() {
             .addOnSuccessListener {
                 Snackbar.make(nBinding.root, "Foto almacenada.",
                     Snackbar.LENGTH_SHORT).show()
+                it.storage.downloadUrl.addOnSuccessListener {
+                    saveSnapshot(key,it.toString(), nBinding.etTitle.text.toString().trim())
+                    nBinding.tilTitle.visibility = View.GONE
+                    nBinding.tvMessage.text = getString(R.string.post_message_title)
+                }
             }
             .addOnFailureListener{
                 Snackbar.make(nBinding.root, "No se pudo almacenar.",
@@ -80,8 +85,9 @@ class AddFragment : Fragment() {
         }
     }
 
-    private fun saveSnapshot(){
-
+    private fun saveSnapshot(key: String, url: String, title: String){
+        val snapshot = Snapshot(title = title, photoUrl = url)
+        nDataBaseReference.child(key).setValue(snapshot)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
